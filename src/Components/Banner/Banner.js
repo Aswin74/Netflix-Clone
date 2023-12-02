@@ -1,25 +1,25 @@
-import React from 'react'
-//import { API_KEY } from '../../constants/constants'
-
+import React, {useEffect, useState} from 'react'
+import { API_KEY , imgUrl} from '../../constants/constants'
+import axios from '../../axios'
 import './Banner.css'
 function Banner() {
-    /*useEffect(() => {
-        axios.get(`3/trending/all/week?language=en-US&api_key=${API_KEY}`).then((response) => {
-            console.log(response.data)
+    const [movie, setMovie] = useState()
+    useEffect(() => {
+        axios.get(`trending/movie/day?language=en-US&api_key=${API_KEY}`).then((response) => {
+            console.log(response.data.results[4])
+            setMovie(response.data.results[4])
         })
-    },[]) //should only once it is mounted-> empty array othervice para pass*/
+    },[]) //should only once it is mounted-> empty array othervice para pass
     return (
-        <div 
-         className='banner'>
+        <div style={{ backgroundImage:`url(${movie ? imgUrl+movie.backdrop_path : ''})`}}
+            className='banner'>
             <div className='content' >
-                <h1 className='title'>Attack On Titan </h1>
+                <h1 className='title'>{movie ? movie.title : ''} </h1>
                 <div className='banner_buttons' >
                     <button className='button' >Play</button>
                     <button className='button' >My list</button>
                 </div>
-                <h1 className='description'>Netflix is a subscription-based streaming service that allows our members to watch TV shows
-                and movies on an internet-connected device. Depending on your plan, you can also download TV shows and movies to your iOS,
-                Android, or Windows 10 device and watch without an internet connection.</h1>
+                <h1 className='description'>{movie ? movie.overview : ''} </h1>
             </div>
         <div className="fade_bottom"></div>
         </div>
