@@ -12,13 +12,12 @@ function App() {
         <Banner/>
         <RowPost title ='Netflix Originals' url={originals}/>
         <RowPost title ='Action Movies' isSmall url={action}/>
+        <RowPost title ='Comedy Movies' isSmall url={comedy}/>
+        <RowPost title ='Horror Movies' isSmall url={horror}/>
+        <RowPost title ='Romance Movies' isSmall url={romance}/>
 
     </div>
   );
 }
-
-/**<RowPost title ='Comedy Movies' isSmall url={comedy}/>
-<RowPost title ='Horror Movies' isSmall url={horror}/>
-<RowPost title ='Romance Movies' isSmall url={romance}/>**/
 
 export default App;
