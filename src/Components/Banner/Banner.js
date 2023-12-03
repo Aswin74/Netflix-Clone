@@ -7,7 +7,7 @@ function Banner() {
     useEffect(() => {
         axios.get(`trending/movie/day?language=en-US&api_key=${API_KEY}`).then((response) => {
             console.log(response.data.results[7])
-            setMovie(response.data.results[7])
+            setMovie(response.data.results[7]) //putting the get value to setMovie Method
         })
     },[]) //should only once it is mounted-> empty array othervice para pass
     return (
